@@ -2,7 +2,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
-const { token } = require(process.env.token);
+//const { token } = require(process.env.token);
 
 // Create a new client instance
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
@@ -58,7 +58,7 @@ client.once(Events.ClientReady, c => {
 });
 
 // Log in to Discord with your client's token
-client.login(token);
+client.login(process.env.token);
 
 const { ActivityType } = require("discord.js");
 
@@ -71,7 +71,7 @@ var countDownFunc = setInterval(function(){
       client.user.setActivity("6.4 in " + days + " days!", {
         type: ActivityType.Playing,
         })
-      }, 1000)
+      }, 60000)
 
 //console.log(days)
 
