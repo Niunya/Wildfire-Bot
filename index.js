@@ -62,13 +62,14 @@ client.login(process.env.token);
 
 const { ActivityType } = require("discord.js");
 
-var countDownDate = new Date("May 23, 2023 02:00:00").getTime();
+var countDownDate = new Date("May 23, 2023 07:00:00").getTime();
 var countDownFunc = setInterval(function(){
       var now = new Date().getTime()
       var timeleft = countDownDate - now
       var days = Math.floor(timeleft / (1000 * 60 * 60 * 24))
+      var hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
       //return days
-      client.user.setActivity("6.4 in " + days + " days!", {
+      client.user.setActivity("6.4 in " + days + " days " + hours + " hours!", {
         type: ActivityType.Playing,
         })
       }, 60000)
